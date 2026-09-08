@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма замовлення товару</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; margin: 20px; padding: 0; }
+        .form-container { max-width: 600px; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 20px auto; }
+        h2 { text-align: center; color: #333; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+        input[type="text"], input[type="email"], input[type="number"], input[type="tel"], textarea, select { width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; }
+        .radio-group, .checkbox-group { margin-bottom: 8px; display: flex; align-items: center; }
+        .radio-group input, .checkbox-group input { margin-right: 8px; }
+        .radio-group label, .checkbox-group label { display: inline; font-weight: normal; margin-bottom: 0; }
+        button { width: 100%; padding: 12px; background-color: #28a745; color: white; border: none; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 15px; }
+        button:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h2>Варіант 3. Форма замовлення товару</h2>
+    <form action="#" method="POST">
+        <div class="form-group"><label for="first-name">1. Ім'я покупця *</label><input type="text" id="first-name" name="first_name" required></div>
+        <div class="form-group"><label for="last-name">2. Прізвище *</label><input type="text" id="last-name" name="last_name" required></div>
+        <div class="form-group"><label for="email">3. Електронна пошта *</label><input type="email" id="email" name="email" required></div>
+        <div class="form-group"><label for="phone">4. Номер телефону *</label><input type="tel" id="phone" name="phone" required></div>
+        <div class="form-group"><label for="quantity">5. Кількість товару (від 1 до 10) *</label><input type="number" id="quantity" name="quantity" min="1" max="10" required></div>
+        <div class="form-group"><label for="address">6. Адресу доставки (не менше 10 символів) *</label><input type="text" id="address" name="address" minlength="10" required></div> <div class="form-group">
+        <label>Спосіб доставки *</label>
+        <div class="radio-group"><input type="radio" id="delivery-pickup" name="delivery" value="Самовивіз" required><label for="delivery-pickup">Самовивіз</label></div>
+        <div class="radio-group"><input type="radio" id="delivery-post" name="delivery" value="Поштомат"><label for="delivery-post">Поштомат</label></div>
+        <div class="radio-group"><input type="radio" id="delivery-courier" name="delivery" value="Кур'єр"><label for="delivery-courier">Кур'єр</label></div>
+    </div>
+    <div class="form-group">
+        <label>Додаткові параметри:</label>
+        <div class="checkbox-group"><input type="checkbox" id="param-gift" name="params" value="Подарункова упаковка"><label for="param-gift">Подарункова упаковка</label></div>
+        <div class="checkbox-group"><input type="checkbox" id="param-warranty" name="params" value="Додаткова гарантія"><label for="param-warranty">Додаткова гарантія</label></div>
+        <div class="checkbox-group"><input type="checkbox" id="param-sms" name="params" value="SMS-повідомлення"><label for="param-sms">SMS-повідомлення</label></div>
+        <div class="checkbox-group"><input type="checkbox" id="param-call" name="params" value="Телефонний дзвінок перед доставкою"><label for="param-call">Телефонний дзвінок перед доставкою</label></div>
+    </div>
+    <div class="form-group">
+        <label for="payment">Спосіб оплати *</label>
+        <select id="payment" name="payment" required>
+            <option value="" disabled selected>Оберіть спосіб оплати</option>
+            <option value="Оплата карткою">Оплата карткою</option>
+            <option value="Оплата при отриманні">Оплата при отриманні</option>
+            <option value="Банківський переказ">Банківський переказ</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="comment">Коментар до замовлення (не більше 200 символів)</label>
+        <textarea id="comment" name="comment" rows="4" maxlength="200"></textarea>
+    </div>
+    <button type="submit">Оформити замовлення</button>
+</form>
